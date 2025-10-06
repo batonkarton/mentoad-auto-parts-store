@@ -13,9 +13,32 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build Solution and Run Tests
-      id: build
-      run: dotnet test --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+    - name: Cache SonarQube Cloud packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache SonarQube Cloud scanner
+      id: cache-sonar-scanner
+      uses: actions/cache@v4
+      with:
+        path: ${{ runner.temp }}/scanner
+        key: ${{ runner.os }}-sonar-scanner
+        restore-keys: ${{ runner.os }}-sonar-scanner
+    - name: Install SonarQube Cloud scanner
+      if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+      run: |
+          mkdir -p ${{ runner.temp }}/scanner
+          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}/scanner
+    - name: Build and analyze
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+          ${{ runner.temp }}/scanner/dotnet-sonarscanner begin /k:"batonkarton_mentoad-auto-parts-store" /o:"batonkarton" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet test --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+          ${{ runner.temp }}/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
     # - name: Combine Coverage Reports
     #   uses: danielpalme/ReportGenerator-GitHub-Action@c4c5175a441c6603ec614f5084386dabe0e2295b
     #   with:
