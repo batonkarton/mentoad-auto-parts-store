@@ -2,15 +2,13 @@ namespace AutoPartsStore;
 
 public class WelcomeService
 {
-    private readonly User _currentUser = new User();
+    private readonly User _currentUser = new();
 
     public void Welcome()
     {
         Console.WriteLine("Welcome to Auto Parts Store!");
         ValidateUser();
-
         ShowOptions();
-       
     }
 
     private static void ShowOptions()
@@ -18,7 +16,6 @@ public class WelcomeService
         Console.WriteLine("What do you want to buy.Please enter number of your choice");
         Console.WriteLine(" 1. Buy detail \n 2. Buy service \n 3. Buy accessory");
         GetUserInput();
-
     }
 
     private static void GetUserInput()
@@ -33,10 +30,8 @@ public class WelcomeService
                     Console.WriteLine($"You selected option {choice}");
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("Number out of range. Please enter 1, 2, or 3.");
-                }
+
+                Console.WriteLine("Number out of range. Please enter 1, 2, or 3.");
             }
             else
             {
