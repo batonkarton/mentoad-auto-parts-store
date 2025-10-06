@@ -2,7 +2,7 @@ name: PR checker
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop]
     types: [opened, edited, synchronize]
 
 jobs:
