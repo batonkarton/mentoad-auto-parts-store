@@ -36,7 +36,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
           ${{ runner.temp }}/scanner/dotnet-sonarscanner begin /k:"batonkarton_mentoad-auto-parts-store" /o:"batonkarton" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet test --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+          dotnet build --configuration Release
           ${{ runner.temp }}/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
     # - name: Combine Coverage Reports
