@@ -46,8 +46,10 @@ public class WelcomeService
         {
             Console.WriteLine("What's your name?");
             _currentUser.Name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(_currentUser.Name) || _currentUser.Name.Any(char.IsDigit) || _currentUser.Name.Any(char.IsPunctuation))
-                Console.WriteLine("Invalid input, please try again!");
+            if (string.IsNullOrWhiteSpace(_currentUser.Name) 
+                || _currentUser.Name.Any(char.IsDigit) 
+                || _currentUser.Name.Any(char.IsPunctuation))
+                Console.WriteLine("Please, enter your name (only letters)");
             else
             {
                 break;
