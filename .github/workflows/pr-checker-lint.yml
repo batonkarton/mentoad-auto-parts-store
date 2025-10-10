@@ -12,10 +12,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
     - name: Build Solution and Run Tests
       id: build
       run: dotnet test --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+
     # - name: Combine Coverage Reports
     #   uses: danielpalme/ReportGenerator-GitHub-Action@c4c5175a441c6603ec614f5084386dabe0e2295b
     #   with:
