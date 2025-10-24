@@ -4,9 +4,10 @@ namespace AutoPartsStore;
 
 public class PartLoader
 {
-    public static List<Part>? GetPart(string jsonPath)
+    public static List<Part>? GetPart()
     {
-        var jsonText = File.ReadAllText(jsonPath);
+        var jsonText = File.ReadAllText(Constans.JsonParts);
+        
         return JsonSerializer.Deserialize<List<Part>>(jsonText);
     }
 }

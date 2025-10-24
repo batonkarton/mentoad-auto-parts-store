@@ -6,14 +6,11 @@ public class PartPrinter
     {
         if (partsList != null)
         {
-            foreach (var v in partsList)
+            for (int i = 0; i < partsList.Count; i++)
             {
-                Console.WriteLine($"{v.Name} {v.Category} {v.Price}");
+                var v = partsList[i];
+                Console.WriteLine($"{i} {v.Name} {v.Category} {v.Price}");
             }
-        }
-        else
-        {
-            Console.WriteLine("Invalid JSON");
-        }
+        }else Console.WriteLine("There is no parts to display.");
     }
 }

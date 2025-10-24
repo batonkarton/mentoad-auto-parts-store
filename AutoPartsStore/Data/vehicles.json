@@ -1,17 +1,4 @@
 [{"Brand": "bmw", "Model": "x5", "Year": 2020, "Vin": "WBAKS4C56BC123456"},
   {"Brand": "audi", "Model": "a6", "Year": 1996, "Vin": "CBAKS4C56BC122456"},
   {"Brand": "audi", "Model": "a4", "Year": 2004, "Vin": "VBAKS4C56BC112456"},
-  {"Brand": "opel", "Model": "astra", "Year": 2020, "Vin": "WBAKS4C56BC123056"},
-  {"Brand": "nissan", "Model": "skyline", "Year": 1999, "Vin": "WBAKS4C56BC123416"},
-  {"Brand": "mercedes", "Model": "124", "Year": 1998, "Vin": "WBAKS4C56BC123426"},
-  {"Brand": "fiat", "Model": "500", "Year": 2010, "Vin": "WBAKS4C56BC123356"},
-  {"Brand": "opel", "Model": "astra", "Year": 2011, "Vin": "WBAKS4C56BC123446"},
-  {"Brand": "toyota", "Model": "aygo", "Year": 2020, "Vin": "WBAKS4C56BC123456"},
-  {"Brand": "volkswagen", "Model": "passat", "Year": 2020, "Vin": "WBAKS4C56BC123476"},
-  {"Brand": "bmw", "Model": "e38", "Year": 2002, "Vin": "WBAKS4C56BC123486"},
-  {"Brand": "bmw", "Model": "e46", "Year": 2006, "Vin": "WBAKS4C56BC123496"},
-  {"Brand": "honda", "Model": "civic", "Year": 1005, "Vin": "WBAKS4C56BC123457"},
-  {"Brand": "honda", "Model": "hrv", "Year": 2008, "Vin": "WBAKS4C56BC123458"},
-  {"Brand": "mazda", "Model": "3", "Year": 2004, "Vin": "WBAKS4C56BC123450"},
-  {"Brand": "mazda", "Model": "5", "Year": 2020, "Vin": "WBAKS4C56BC123451"},
-  {"Brand": "bmw", "Model": "e32", "Year": 1990, "Vin": "WBAKS4C56BC123459"}]
+  {"Brand": "opel", "Model": "astra", "Year": 2020, "Vin": "WBAKS4C56BC123056"}]

@@ -4,9 +4,10 @@ namespace AutoPartsStore.VehicleAndParts;
 
 public class VehicleLoader
 {
-    public static List<Vehicle>? GetVehicles(string jsonPath)
+    public static List<Vehicle>? GetVehicles()
     {
-        var jsonText = File.ReadAllText(jsonPath);
+        var jsonText = File.ReadAllText(Constans.JsonVehicle);
+        
         return JsonSerializer.Deserialize<List<Vehicle>>(jsonText);
     }
 }

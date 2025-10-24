@@ -5,15 +5,11 @@ public class VehiclePrinter
     public static void PrintVehicle(List<Vehicle>? vehicleList)
     {
         if (vehicleList != null)
-        {
-            foreach (var v in vehicleList)
+        {for (int i = 0; i < vehicleList.Count; i++)
             {
-                Console.WriteLine($"{v.Brand} {v.Model} ({v.Year}) VIN: {v.Vin}");
+                var v = vehicleList[i];
+                Console.WriteLine($"{i} {v.Brand} {v.Model} ({v.Year}) VIN: {v.Vin}");
             }
-        }
-        else
-        {
-            Console.WriteLine("Invalid JSON");
-        }
+        } else Console.WriteLine("There are no vehicles");
     }
 }
