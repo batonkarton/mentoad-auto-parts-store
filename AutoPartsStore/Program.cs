@@ -3,5 +3,5 @@ using AutoPartsStore.VehicleAndParts;
 
 var welcomeService = new WelcomeService();
 welcomeService.Welcome();
-VehicleAndPartSelector.SelectorVehicle();
-VehicleAndPartSelector.SelectorPart();
+VehicleAndPartSelector.SelectVehicle();
+VehicleAndPartSelector.SelectPart();
