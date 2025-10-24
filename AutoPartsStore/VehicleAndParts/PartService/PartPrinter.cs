@@ -6,10 +6,9 @@ public class PartPrinter
     {
         if (partsList != null)
         {
-            for (int i = 0; i < partsList.Count; i++)
+            foreach (var part in partsList)
             {
-                var v = partsList[i];
-                Console.WriteLine($"{i} {v.Name} {v.Category} {v.Price}");
+                Console.WriteLine($"{part.Id} {part.Name} {part.Category} {part.Price}");
             }
         }else Console.WriteLine("There is no parts to display.");
     }

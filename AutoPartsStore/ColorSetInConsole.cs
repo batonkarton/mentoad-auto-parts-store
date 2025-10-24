@@ -7,6 +7,5 @@ public static class ConsoleHighlighter
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(formatter(items[index]));
         Console.ResetColor();
-        Thread.Sleep(2000);
     }
 }

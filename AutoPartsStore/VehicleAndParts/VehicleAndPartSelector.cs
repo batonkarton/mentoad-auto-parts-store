@@ -2,14 +2,14 @@ namespace AutoPartsStore.VehicleAndParts;
 
 public static class VehicleAndPartSelector
 {
-    public static void SelectorVehicle()
+    public static void SelectVehicle()
     {
         var vehicles = VehicleLoader.GetVehicles();
         VehiclePrinter.PrintVehicle(vehicles);
         if (vehicles != null) VehicleSelection(vehicles);
     }
 
-    public static void SelectorPart()
+    public static void SelectPart()
     {
         var part = PartLoader.GetPart();
         PartPrinter.PrintParts(part);
@@ -22,10 +22,12 @@ public static class VehicleAndPartSelector
         
         if (int.TryParse(Console.ReadLine(), out var index) && index >= 0 && index < vehicles.Count)
         {
-            ConsoleHighlighter.Highlight(vehicles, index, v => $"Your choice: {v.Brand} {v.Model} {v.Year} {v.Vin}");
+            ConsoleHighlighter.Highlight(vehicles, index, v => $"Your choice: {v.Brand} {v.Model} year: {v.Year} Vin: {v.Vin}");
         }
-
-        Console.WriteLine("Please enter a valid number");
+        else
+        {
+            Console.WriteLine("Please enter a valid number");
+        }
     }
 
     private static void PartSelection(List<Part> part)
@@ -34,10 +36,11 @@ public static class VehicleAndPartSelector
         
         if (int.TryParse(Console.ReadLine(), out var index) && index >= 0 && index < part.Count)
         {
-            Console.WriteLine($"Your choice:{part[index]}");
-            ConsoleHighlighter.Highlight(part, index, v => $"Your choice: {v.Category} {v.Name} {v.Price}");
+            ConsoleHighlighter.Highlight(part, index, v => $"Your choice: {v.Category} {v.Name} price: {v.Price}");
         }
-
-        Console.WriteLine("Please enter a valid number");
+        else
+        {
+            Console.WriteLine("Please enter a valid number");
+        }
     }
 }
