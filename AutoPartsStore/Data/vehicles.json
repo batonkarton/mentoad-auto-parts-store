@@ -1,0 +1,4 @@
+[{"Id": 1, "Brand": "bmw", "Model": "x5", "Year": 2020, "Vin": "WBAKS4C56BC123456"},
+  {"Id": 2, "Brand": "audi", "Model": "a6", "Year": 1996, "Vin": "CBAKS4C56BC122456"},
+  {"Id": 3, "Brand": "audi", "Model": "a4", "Year": 2004, "Vin": "VBAKS4C56BC112456"},
+  {"Id": 4, "Brand": "opel", "Model": "astra", "Year": 2020, "Vin": "WBAKS4C56BC123056"}]
