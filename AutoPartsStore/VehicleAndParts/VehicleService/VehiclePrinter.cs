@@ -4,12 +4,18 @@ public class VehiclePrinter
 {
     public static void PrintVehicle(List<Vehicle>? vehicleList)
     {
-        if (vehicleList != null)
+        ConsoleHighlighter.ColorPrint("choose a vehicle:" ,  ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorSearch();
+        ConsoleHighlighter.ColorPrint("audi\nbmw\nopel\ntoyota\nford\nmercedes\nvolkswagen", ConsoleColor.Cyan);
+        var userInput = Console.ReadLine()?.ToLower();
+        if (vehicleList != null && !string.IsNullOrEmpty(userInput))
         {
-            foreach (var vehicle in vehicleList)
+            var vehicleCategory = vehicleList.Where(p => p.Brand == userInput).ToList();
+            foreach (var vehicle in vehicleCategory)
             {
-                Console.WriteLine($"{vehicle.Id} {vehicle.Brand} {vehicle.Model} {vehicle.Year} {vehicle.Vin}");
+                ConsoleHighlighter.ColorPrint($" {vehicle.Id} {vehicle.Model}", ConsoleColor.Cyan);
             }
+            
         } else Console.WriteLine("There are no vehicles");
     }
 }

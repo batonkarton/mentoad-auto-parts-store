@@ -1,4 +1,10 @@
-[{"Id": 1, "Brand": "bmw", "Model": "x5", "Year": 2020, "Vin": "WBAKS4C56BC123456"},
-  {"Id": 2, "Brand": "audi", "Model": "a6", "Year": 1996, "Vin": "CBAKS4C56BC122456"},
-  {"Id": 3, "Brand": "audi", "Model": "a4", "Year": 2004, "Vin": "VBAKS4C56BC112456"},
-  {"Id": 4, "Brand": "opel", "Model": "astra", "Year": 2020, "Vin": "WBAKS4C56BC123056"}]
+[
+  { "Id": 1, "Brand": "bmw", "Model": "x5", "Year": 2020, "Vin": "WBAKS4C56BC123456", "Engine Capacity": "1880" },
+  { "Id": 2, "Brand": "audi", "Model": "a6", "Year": 1996, "Vin": "CBAKS4C56BC122456", "Engine Capacity": "2000" },
+  { "Id": 3, "Brand": "audi", "Model": "a4", "Year": 2004, "Vin": "VBAKS4C56BC112456", "Engine Capacity": "1800" },
+  { "Id": 4, "Brand": "opel", "Model": "astra", "Year": 2020, "Vin": "WBAKS4C56BC123056", "Engine Capacity": "1600" },
+  { "Id": 5, "Brand": "toyota", "Model": "camry", "Year": 2018, "Vin": "JTNBE46KX03012345", "Engine Capacity": "2500" },
+  { "Id": 6, "Brand": "ford", "Model": "focus", "Year": 2015, "Vin": "1FAHP3K26CL123789", "Engine Capacity": "1600" },
+  { "Id": 7, "Brand": "mercedes", "Model": "e200", "Year": 2021, "Vin": "WDDZF4JB1MA123456", "Engine Capacity": "2000" },
+  { "Id": 8, "Brand": "volkswagen", "Model": "passat", "Year": 2019, "Vin": "WVWHV7AJ9KW123456", "Engine Capacity": "1984" }
+]

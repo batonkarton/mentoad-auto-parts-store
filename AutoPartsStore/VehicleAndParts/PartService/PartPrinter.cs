@@ -4,12 +4,18 @@ public class PartPrinter
 {
     public static void PrintParts(List<Part>? partsList)
     {
-        if (partsList != null)
+        ConsoleHighlighter.ColorPrint("choose category:", ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorSearch();
+        ConsoleHighlighter.ColorPrint("Engine\nElectrical", ConsoleColor.Cyan);
+        
+        var userInput = Console.ReadLine()?.ToLower();
+        if (partsList != null && !string.IsNullOrEmpty(userInput))
         {
-            foreach (var part in partsList)
+            var partCategory = partsList.Where(p => p.Category == userInput);
+            foreach (var part in partCategory)
             {
-                Console.WriteLine($"{part.Id} {part.Name} {part.Category} {part.Price}");
+                ConsoleHighlighter.ColorPrint($"{part.Id} {part.Name}", ConsoleColor.Cyan);
             }
-        }else Console.WriteLine("There is no parts to display.");
+        } else Console.WriteLine("There is no parts to display.");
     }
 }

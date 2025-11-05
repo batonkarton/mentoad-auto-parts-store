@@ -1,6 +1,6 @@
 [
-  { "Id": 1, "Name": "Engine Block", "Category": "Engine", "Price": 1200 },
-  { "Id": 2, "Name": "Cylinder Head", "Category": "Engine", "Price": 850 },
-  { "Id": 3, "Name": "Spark Plug", "Category": "Electrical", "Price": 15 },
-  { "Id": 4, "Name": "Alternator", "Category": "Electrical", "Price": 220 },
-  { "Id": 5, "Name": "Starter Motor", "Category": "Electrical", "Price": 180 }]
+  { "Id": 1, "Name": "Engine Block", "Category": "engine", "Price": 1200 },
+  { "Id": 2, "Name": "Cylinder Head", "Category": "engine", "Price": 850 },
+  { "Id": 3, "Name": "Spark Plug", "Category": "electrical", "Price": 15 },
+  { "Id": 4, "Name": "Alternator", "Category": "electrical", "Price": 220 },
+  { "Id": 5, "Name": "Starter Motor", "Category": "electrical", "Price": 180 }]

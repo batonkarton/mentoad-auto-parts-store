@@ -2,45 +2,59 @@ namespace AutoPartsStore.VehicleAndParts;
 
 public static class VehicleAndPartSelector
 {
-    public static void SelectVehicle()
+    public static Vehicle? SelectVehicle()
     {
         var vehicles = VehicleLoader.GetVehicles();
+        
         VehiclePrinter.PrintVehicle(vehicles);
-        if (vehicles != null) VehicleSelection(vehicles);
+        
+        return vehicles != null ? VehicleSelection(vehicles) : null;
     }
 
-    public static void SelectPart()
+    public static Part? SelectPart()
     {
         var part = PartLoader.GetPart();
+        
         PartPrinter.PrintParts(part);
-        if (part != null) PartSelection(part);
+        
+        return part != null ? PartSelection(part) : null;
     }
 
-    private static void VehicleSelection(List<Vehicle> vehicles)
+    private static Vehicle? VehicleSelection(List<Vehicle> vehicles)
     {
-        Console.WriteLine("Choose a vehicle:");
-        
-        if (int.TryParse(Console.ReadLine(), out var index) && index >= 0 && index < vehicles.Count)
+        ConsoleHighlighter.ColorPrint("Choose a vehicle:", ConsoleColor.Yellow);
+
+        if (int.TryParse(Console.ReadLine(), out var input) && input >= 1 && input <= vehicles.Count)
         {
-            ConsoleHighlighter.Highlight(vehicles, index, v => $"Your choice: {v.Brand} {v.Model} year: {v.Year} Vin: {v.Vin}");
+            var index = input - 1;
+            var vehicle = vehicles[index];
+            
+            ConsoleHighlighter.Highlight(vehicles, index, v => $"Your choice: {v.Brand}");
+            
+            return vehicle;
         }
-        else
-        {
-            Console.WriteLine("Please enter a valid number");
-        }
+
+        Console.WriteLine("Please enter a valid number");
+
+        return null;
     }
 
-    private static void PartSelection(List<Part> part)
+    private static Part? PartSelection(List<Part> part)
     {
-        Console.WriteLine("Choose a vehicle:");
-        
-        if (int.TryParse(Console.ReadLine(), out var index) && index >= 0 && index < part.Count)
+        ConsoleHighlighter.ColorPrint("Choose a parts:", ConsoleColor.Yellow);
+
+        if (int.TryParse(Console.ReadLine(), out var input) && input >= 1 && input <= part.Count)
         {
-            ConsoleHighlighter.Highlight(part, index, v => $"Your choice: {v.Category} {v.Name} price: {v.Price}");
+            var index = input - 1;
+            var selectedPart = part[index];
+            
+            ConsoleHighlighter.Highlight(part, index, v => $"Your choice: {v.Id} {v.Name}");
+            
+            return selectedPart;
         }
-        else
-        {
-            Console.WriteLine("Please enter a valid number");
-        }
+
+        Console.WriteLine("Please enter a valid number");
+
+        return null;
     }
 }
