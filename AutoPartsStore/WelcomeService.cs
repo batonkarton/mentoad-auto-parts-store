@@ -7,14 +7,18 @@ public class WelcomeService
     public void Welcome()
     {
         Console.WriteLine("Welcome to Auto Part Store!");
+        
         ValidateUser();
         ShowOptions();
     }
 
+    //TODO: Implement buying service and accessory options
     private static void ShowOptions()
     {
-        Console.WriteLine("What do you want to buy.Please enter number of your choice");
-        Console.WriteLine(" 1. Buy detail \n 2. Buy service \n 3. Buy accessory");
+        ConsoleHighlighter.ColorPrint("What do you want to buy.Please enter number of your choice",
+            ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorPrint(" 1. Buy detail \n 2. Buy service (Not implemented) \n 3. Buy accessory (Not implemented)", ConsoleColor.Cyan);
+        
         GetUserInput();
     }
 
@@ -27,16 +31,13 @@ public class WelcomeService
             {
                 if (choice >= 1 && choice <= 3)
                 {
-                    Console.WriteLine($"You selected option {choice}");
+                    ConsoleHighlighter.ColorPrint($"You selected option {choice}", ConsoleColor.Green);
+
                     break;
                 }
-
+                
                 Console.WriteLine("Number out of range. Please enter 1, 2, or 3.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a number.");
-            }
+            } else Console.WriteLine("Invalid input. Please enter a number.");
         }
     }
 
@@ -44,16 +45,15 @@ public class WelcomeService
     {
         while (true)
         {
-            Console.WriteLine("What's your name?");
+            ConsoleHighlighter.ColorPrint("What's your name?", ConsoleColor.Yellow);
+
             _currentUser.Name = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(_currentUser.Name)
                 || _currentUser.Name.Any(char.IsDigit)
                 || _currentUser.Name.Any(char.IsPunctuation))
                 Console.WriteLine("Please, enter your name (only letters)");
-            else
-            {
-                break;
-            }
+            
+            break;
         }
     }
 }

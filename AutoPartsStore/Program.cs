@@ -1,7 +1,6 @@
 ﻿using AutoPartsStore;
-using AutoPartsStore.VehicleAndParts;
+using AutoPartsStore.SearchAndAvailabilityCheck;
 
 var welcomeService = new WelcomeService();
 welcomeService.Welcome();
-VehicleAndPartSelector.SelectVehicle();
-VehicleAndPartSelector.SelectPart();
+SearchService.Search();
