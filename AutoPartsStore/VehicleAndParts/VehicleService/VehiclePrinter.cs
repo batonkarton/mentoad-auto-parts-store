@@ -2,20 +2,19 @@ namespace AutoPartsStore.VehicleAndParts;
 
 public class VehiclePrinter
 {
-    public static void PrintVehicle(List<Vehicle>? vehicleList)
+    public static void PrintVehicle(List<Vehicle> vehicles)
     {
-        ConsoleHighlighter.ColorPrint("choose a vehicle:" ,  ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorPrint("Choose a vehicle:" ,  ConsoleColor.Yellow);
         ConsoleHighlighter.ColorSearch();
-        ConsoleHighlighter.ColorPrint("audi\nbmw\nopel\ntoyota\nford\nmercedes\nvolkswagen", ConsoleColor.Cyan);
-        var userInput = Console.ReadLine()?.ToLower();
-        if (vehicleList != null && !string.IsNullOrEmpty(userInput))
+        if (vehicles.Count == 0)
         {
-            var vehicleCategory = vehicleList.Where(p => p.Brand == userInput).ToList();
-            foreach (var vehicle in vehicleCategory)
-            {
-                ConsoleHighlighter.ColorPrint($" {vehicle.Id} {vehicle.Model}", ConsoleColor.Cyan);
-            }
-            
-        } else Console.WriteLine("There are no vehicles");
+            Console.WriteLine("There is no vehicles to display.");
+            return;
+        }
+        
+        foreach (var vehicle in vehicles)
+        {
+            ConsoleHighlighter.ColorPrint($"Id: {vehicle.Id}; Brand: {vehicle.Brand}; Model: {vehicle.Model};", ConsoleColor.Cyan);
+        }
     }
 }

@@ -1,28 +1,39 @@
+using AutoPartsStore.Interfaces;
+using AutoPartsStore.Repositories;
+
 namespace AutoPartsStore.VehicleAndParts;
 
-public static class VehicleAndPartSelector
+public class VehicleAndPartSelector
 {
-    public static Vehicle? SelectVehicle()
+    private readonly IRepository<Part> _partRepository = new PartRepository();
+    private readonly IRepository<Vehicle> _vehicleRepository = new VehicleRepository();
+
+    public Vehicle? SelectVehicle()
     {
-        var vehicles = VehicleLoader.GetVehicles();
+        var vehicles = _vehicleRepository.ReadAll();
         
         VehiclePrinter.PrintVehicle(vehicles);
         
-        return vehicles != null ? VehicleSelection(vehicles) : null;
+        return vehicles.Count != 0 ? VehicleSelection(vehicles) : null;
     }
 
-    public static Part? SelectPart()
+    public Part? SelectPart()
     {
-        var part = PartLoader.GetPart();
+        var parts = _partRepository.ReadAll();
         
-        PartPrinter.PrintParts(part);
+        ConsoleHighlighter.ColorPrint("Choose category, please enter full name:", ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorSearch();
+        PartPrinter.PrintPartCategories(parts);
         
-        return part != null ? PartSelection(part) : null;
+        var userInput = Console.ReadLine()?.ToLower();
+        PartPrinter.PrintParts(parts, userInput);
+        
+        return parts.Count != 0 ? PartSelection(parts) : null;
     }
 
     private static Vehicle? VehicleSelection(List<Vehicle> vehicles)
     {
-        ConsoleHighlighter.ColorPrint("Choose a vehicle:", ConsoleColor.Yellow);
+        ConsoleHighlighter.ColorPrint("Choose a vehicle id:", ConsoleColor.Yellow);
 
         if (int.TryParse(Console.ReadLine(), out var input) && input >= 1 && input <= vehicles.Count)
         {

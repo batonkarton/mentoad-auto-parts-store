@@ -12,11 +12,12 @@ public class WelcomeService
         ShowOptions();
     }
 
+    //TODO: Implement buying service and accessory options
     private static void ShowOptions()
     {
         ConsoleHighlighter.ColorPrint("What do you want to buy.Please enter number of your choice",
             ConsoleColor.Yellow);
-        ConsoleHighlighter.ColorPrint(" 1. Buy detail \n 2. Buy service \n 3. Buy accessory", ConsoleColor.Cyan);
+        ConsoleHighlighter.ColorPrint(" 1. Buy detail \n 2. Buy service (Not implemented) \n 3. Buy accessory (Not implemented)", ConsoleColor.Cyan);
         
         GetUserInput();
     }
